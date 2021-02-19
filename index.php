@@ -1,4 +1,6 @@
 <?php
-echo "The pipeline is up and running."
+echo {
+    "message": "The scgproject api is running..."
+}
 
 ?>
