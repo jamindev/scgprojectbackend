@@ -1,4 +1,4 @@
 <?php
-echo "hi! world..."
+echo "The pipeline is up and running."
 
 ?>
