@@ -1,6 +1,5 @@
 <?php
-echo {
-    "message": "The scgproject api is running..."
-}
+$data = ["message" => "Serving up the SCGProject api..."];
+echo json_encode($data);
 
 ?>
