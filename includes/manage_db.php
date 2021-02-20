@@ -7,10 +7,10 @@ $login_error = "";
 	class manage_db extends db{
 //1.
 		function connect(){
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "utopiamaya3";
-		$db_name = "lucryx";
+			$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
+			$db_user = "admin";
+			$db_pass = "utopiamaya3";
+			$db_name = "scgproject";
 			$db_info = new db();
 			$connect = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 			return $connect;
@@ -25,10 +25,10 @@ $login_error = "";
 
 //3.
 		function query($sql){
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "utopiamaya3";
-		$db_name = "lucryx";
+			$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
+			$db_user = "admin";
+			$db_pass = "utopiamaya3";
+			$db_name = "scgproject";
 			$connect = $this->connect();
 			//$this->select_db();
 			mysqli_query($connect, $sql) or die(mysql_error());
@@ -36,10 +36,10 @@ $login_error = "";
 
 //4.
 		function return_query($sql){
-		$db_host = "localhost";
-		$db_user = "root";
-		$db_pass = "utopiamaya3";
-		$db_name = "lucryx";
+			$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
+			$db_user = "admin";
+			$db_pass = "utopiamaya3";
+			$db_name = "scgproject";
 			$connect = $this->connect();
 			//$this->select_db();
 			$query = mysqli_query($connect, $sql);

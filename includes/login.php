@@ -5,7 +5,7 @@
 //1.
 		function check_admin_user($user, $pass, $access_level){
 			$manage_db = new manage_db();
-			$query = $manage_db->return_query("SELECT * FROM admin_users");
+			$query = $manage_db->return_query("SELECT * FROM users");
 			$i = 0;
 			$k = 0;
 			while($i<mysqli_num_rows($query)){
@@ -20,7 +20,7 @@
 
 			if($i == mysqli_num_rows($query) + 2){
 				$result_pass = mysql_result($query, $k, 'password') or die(mysql_error());
-				$result_level = mysql_result($query, $k, 'access_level') or die(mysql_error());
+				$result_level = mysql_result($query, $k, 'customer_type') or die(mysql_error());
 
 				if($result_pass==$pass && $result_level==$access_level){
 					$fdata = true;
@@ -35,9 +35,9 @@
 		}
 
 //2.
-		function check_student_user($user, $pass){
+		function check_customer($user, $pass){
 			$manage_db = new manage_db();
-			$query = $manage_db->return_query("SELECT * FROM students");
+			$query = $manage_db->return_query("SELECT * FROM users");
 			$i = 0;
 			$k = 0;
 			while($i<mysqli_num_rows($query)){

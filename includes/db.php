@@ -6,10 +6,10 @@ class db{
 	public $db_name;
 	
 	public function __construct(){
-		$this->db_host = "localhost";
-		$this->db_user = "root";
-		$this->db_pass = "";
-		$this->db_name = "lucryx";
+		$this->db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
+		$this->db_user = "admin";
+		$this->db_pass = "utopiamaya3";
+		$this->db_name = "scgproject";
 	}
 }
 
