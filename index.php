@@ -17,7 +17,7 @@ if(isset($_GET['msg'])){
 
     if ($query->num_rows > 0) {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
+        while($row = $query->fetch_assoc()) {
             $email = $row['email'];
         }
     }
