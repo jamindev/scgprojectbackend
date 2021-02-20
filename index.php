@@ -15,7 +15,7 @@ if(isset($_GET['msg'])){
     //     $email = mysql_result($query, $i, 'email') or die(mysql_error());
     // }
 
-    $data1 = ["message1" => $email];
+    $data1 = ["message1" => $query];
     echo json_encode($data1);
 }
 ?>
