@@ -8,8 +8,8 @@ require("./includes/manage_db.php");
 
 if(isset($_GET['msg'])){
     $email = "not yet";
-    // $manage_db = new manage_db();
-    // $query = $manage_db->return_query("SELECT * FROM users");
+    $manage_db = new manage_db();
+    $query = $manage_db->return_query("SELECT * FROM users");
     // $i = 0;
     // while($i<mysqli_num_rows($query)){
     //     $email = mysql_result($query, $i, 'email') or die(mysql_error());
