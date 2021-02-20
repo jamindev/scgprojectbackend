@@ -4,7 +4,7 @@ if( $http_origin == "http://scgprojectfrontend.s3-website-us-east-1.amazonaws.co
     header("Access-Control-Allow-Origin: $http_origin");
 }
 
-// require("./includes/manage_db.php");
+require("./includes/manage_db.php");
 
 if(isset($_GET['msg'])){
     $email = "not yet";
