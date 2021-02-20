@@ -15,6 +15,13 @@ if(isset($_GET['msg'])){
     //     $email = mysql_result($query, $i, 'email') or die(mysql_error());
     // }
 
+    if ($query->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $email = $row['email'];
+        }
+    }
+
     $data1 = ["message1" => $query];
     echo json_encode($data1);
 }
