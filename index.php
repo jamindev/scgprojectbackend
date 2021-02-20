@@ -22,7 +22,7 @@ if(isset($_GET['msg'])){
         }
     }
 
-    $data1 = ["message1" => $query];
+    $data1 = ["message1" => $email];
     echo json_encode($data1);
 }
 ?>
