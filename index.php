@@ -24,8 +24,8 @@ if(isset($_GET['msg'])){
 }
 
 
+header("Access-Control-Allow-Origin: *");
 if(isset($_POST['email'])){
-    $email = "not yet";
     $manage_db = new manage_db();
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
