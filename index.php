@@ -53,7 +53,7 @@ if(isset($_POST['email'])){
     //     }
     // }
 
-    $data = ["response" => "posted", "email" => $email, "id" => "1"];
+    $data = ["response" => "posted"];
     echo json_encode($data);
 }
 
