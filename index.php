@@ -13,21 +13,21 @@ header('Access-Control-Allow-Origin: *');
 
 require("./includes/manage_db.php");
 
-if(isset($_GET['msg'])){
-    $email = "not yet";
-    $manage_db = new manage_db();
-    $query = $manage_db->return_query("SELECT * FROM users");
+// if(isset($_GET['msg'])){
+//     $email = "not yet";
+//     $manage_db = new manage_db();
+//     $query = $manage_db->return_query("SELECT * FROM users");
 
-    if ($query->num_rows > 0) {
-        // output data of each row
-        while($row = $query->fetch_assoc()) {
-            $email = $row['email'];
-        }
-    }
+//     if ($query->num_rows > 0) {
+//         // output data of each row
+//         while($row = $query->fetch_assoc()) {
+//             $email = $row['email'];
+//         }
+//     }
 
-    $data1 = ["message1" => $email];
-    echo json_encode($data1);
-}
+//     $data1 = ["message1" => $email];
+//     echo json_encode($data1);
+// }
 
 
 if(isset($_POST['email'])){
