@@ -44,7 +44,7 @@ if(isset($_POST['email'])){
     $country = $_POST['country'];
     $state_or_region = $_POST['state_or_region'];
 
-    $query = $manage_db->return_query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
+    $query = $manage_db->query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
 
     // if ($query->num_rows > 0) {
     //     // output data of each row
