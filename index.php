@@ -41,12 +41,12 @@ if(isset($_POST['email'])){
 
     $query = $manage_db->return_query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
 
-    if ($query->num_rows > 0) {
-        // output data of each row
-        while($row = $query->fetch_assoc()) {
-            $email = $row['email'];
-        }
-    }
+    // if ($query->num_rows > 0) {
+    //     // output data of each row
+    //     while($row = $query->fetch_assoc()) {
+    //         $email = $row['email'];
+    //     }
+    // }
 
     $data1 = ["response" => "posted", "email" => $email, "id" => "1"];
     echo json_encode($data1);
