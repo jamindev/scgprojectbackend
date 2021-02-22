@@ -4,6 +4,7 @@ header('Access-Control-Allow-Origin: *');
 require("./includes/manage_db.php");
 
 if(isset($_GET['myprofile'])){
+    $manage_db = new manage_db();
     $email = $_GET['email'];
 
     $query = $manage_db->return_query("SELECT * FROM users WHERE email='$email'");
