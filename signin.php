@@ -6,9 +6,8 @@ require("./includes/manage_db.php");
 
 if(isset($_GET['signin'])){
     $manage_db = new manage_db();
-    $email = $_POST['email'];
-    $password = md5($_POST['password']);
-    $gender = $_POST['gender'];
+    $email = $_GET['email'];
+    $password = md5($_GET['password']);
 
     $query = $manage_db->return_query("SELECT * FROM users WHERE email='$email' AND password='$password'");
 
