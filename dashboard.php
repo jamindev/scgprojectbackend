@@ -33,6 +33,8 @@ if(isset($_POST['place_order'])){
     
     if ($manage_db->query("INSERT INTO orders VALUES(null, '$customer_id', '$payment_information_id', '$manufacturer', '$years', '$condition_decription', CURRENT_TIMESTAMP, null)")){
         $data = ["response" => "order_placed"];
+    }else{
+        $data = ["response" => "failed"];
     }
 
     echo json_encode($data);
