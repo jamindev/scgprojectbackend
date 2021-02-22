@@ -22,4 +22,7 @@ if(isset($_GET['myprofile'])){
     echo json_encode($data);
 }
 
+$data = ["response" => "some data"];
+
+echo json_encode($data);
 ?>
