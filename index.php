@@ -52,7 +52,7 @@ if(isset($_POST['signup'])){
         $manage_db->query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
         $data = ["response" => "posted", "email" => $email, "id" => "1"];
     }
-
+    $data = ["response" => $query->num_rows];
     echo json_encode($data);
 }
 
