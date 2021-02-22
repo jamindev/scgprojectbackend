@@ -22,4 +22,20 @@ if(isset($_GET['myprofile'])){
     echo json_encode($data);
 }
 
+
+if(isset($_POST['place_order'])){
+    $manage_db = new manage_db();
+    $email = $_POST['email'];
+    $customer_id = $_POST['id'];
+    $manufacturer = $_POST['manufacturer'];
+    $years = $_POST['years'];
+    $condition_description = $_POST['condition_description'];
+    
+    if ($manage_db->query("INSERT INTO orders VALUES(null, '$customer_id', '$payment_information_id', '$manufacturer', '$years', '$condition_decription', CURRENT_TIMESTAMP, null)")){
+        $data = ["response" => "order_placed"];
+    }
+
+    echo json_encode($data);
+}
+
 ?>
