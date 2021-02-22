@@ -5,7 +5,7 @@ require("./includes/manage_db.php");
 
 $data = ["response" => "some data"];
 
-echo json_encode($data);
+echo "hello...";
 
 // if(isset($_GET['myprofile'])){
 //     $email = $_GET['email'];

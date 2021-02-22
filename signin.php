@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 
 require("./includes/manage_db.php");
 
-if(isset($_GET['signup'])){
+if(isset($_GET['signin'])){
     $manage_db = new manage_db();
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
