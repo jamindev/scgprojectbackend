@@ -52,8 +52,26 @@ if(isset($_POST['signup'])){
         $manage_db->query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
         $data = ["response" => "posted", "email" => $email, "id" => "1"];
     }
-    
+
     echo json_encode($data);
 }
 
+
+if(isset($_GET['myprofile'])){
+    $email = $_POST['email'];
+
+    $query = $manage_db->return_query("SELECT * FROM users WHERE email='$email'");
+
+    if ($query->num_rows > 0) {
+        while($row = $query->fetch_assoc()) {
+            $first_name = $row['first_name'];
+            $city = $row['city'];
+        }
+        $data = ["response" => "retrieved", "email" => $email, "first_name" => $first_name, "city"=> $city];
+    }else{
+        $data = ["response" => "failed"];
+    }
+
+    echo json_encode($data);
+}
 ?>
