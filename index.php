@@ -58,7 +58,7 @@ if(isset($_POST['signup'])){
 
 
 if(isset($_GET['myprofile'])){
-    $email = $_POST['email'];
+    $email = $_GET['email'];
 
     $query = $manage_db->return_query("SELECT * FROM users WHERE email='$email'");
 
