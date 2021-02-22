@@ -53,7 +53,7 @@ if(isset($_POST['email'])){
     //     }
     // }
 
-    $data = ["response" => "posted"];
+    $data = ["response" => "posted", "email" => $email, "password" => md5($password)];
     echo json_encode($data);
 }
 
