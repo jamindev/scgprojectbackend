@@ -44,15 +44,15 @@ if(isset($_POST['signup'])){
     $country = $_POST['country'];
     $state_or_region = $_POST['state_or_region'];
 
-    $query = $manage_db->return_query("SELECT * FROM users");
+    $query = $manage_db->return_query("SELECT * FROM users WHERE email='$email'");
 
     if ($query->num_rows > 0) {
-        $data = ["response" => "Email is already being used!", "email" => $email];
+        $data = ["response" => "Email is already being used!", "email" => $email, "id" => "1"];
     }else{
         $manage_db->query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
         $data = ["response" => "posted", "email" => $email, "id" => "1"];
     }
-    $data = ["response" => $query->num_rows];
+    
     echo json_encode($data);
 }
 
