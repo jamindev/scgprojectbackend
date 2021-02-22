@@ -1,19 +1,10 @@
 <?php
-// $http_origin = $_SERVER['HTTP_ORIGIN'];
-// if( $http_origin == "http://scgprojectfrontend.s3-website-us-east-1.amazonaws.com" || $http_origin == "http://24.190.177.13" || $http_origin == "http://localhost:3000" || $http_origin == "http://localhost:3000/signup"){
-//     header("Access-Control-Allow-Origin: $http_origin");
-// }// Allow from any origin
-// if (isset($_SERVER['HTTP_ORIGIN'])) {
-//     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-//     //header('Access-Control-Allow-Credentials: true');
-//     //header('Access-Control-Max-Age: 86400');    // cache for 1 day
-// }
 header('Access-Control-Allow-Origin: *');
 //header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 
 require("./includes/manage_db.php");
 
-if(isset($_POST['signup'])){
+if(isset($_GET['signup'])){
     $manage_db = new manage_db();
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
