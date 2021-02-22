@@ -71,6 +71,7 @@ if(isset($_GET['myprofile'])){
     }else{
         $data = ["response" => "failed"];
     }
+    $data = ["response" => $query->num_rows];
 
     echo json_encode($data);
 }
