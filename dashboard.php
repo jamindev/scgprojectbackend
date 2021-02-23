@@ -29,6 +29,8 @@ if(isset($_POST['place_order'])){
     $manufacturer = $_POST['manufacturer'];
     $years = $_POST['years'];
     $condition_description = $_POST['condition_description'];
+
+    $years = addslashes($years);
     
     // $query = $manage_db->return_query("SELECT * FROM payment_information WHERE customer_id='$id'");
 
