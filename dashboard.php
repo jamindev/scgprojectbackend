@@ -30,8 +30,15 @@ if(isset($_POST['place_order'])){
     $years = $_POST['years'];
     $condition_description = $_POST['condition_description'];
 
-    $years = addslashes($years);
-    
+    $years = json_encode($years);
+
+//     $columns = implode(", ",array_keys($insData));
+// $escaped_values = array_map('mysql_real_escape_string', array_values($insData));
+// $values  = implode(", ", $escaped_values);
+// $sql = "INSERT INTO `fbdata`($columns) VALUES ($values)";
+
+
+    $condition_description = addslashes($condition_description);
     // $query = $manage_db->return_query("SELECT * FROM payment_information WHERE customer_id='$id'");
 
     // if ($query->num_rows > 0) {
