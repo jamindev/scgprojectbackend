@@ -41,8 +41,8 @@ if(isset($_POST['place_order'])){
     // test payment_information_id
     $payment_information_id = 10;
 
-    //$manage_db->query("INSERT INTO orders VALUES(null, $customer_id, $payment_information_id, '$manufacturer', '$years', '$condition_decription', CURRENT_TIMESTAMP, null)");
-    $data = ["response" => "order_placed"];
+    //$manage_db->query("INSERT INTO orders VALUES(null, '$customer_id', '$payment_information_id', '$manufacturer', '$years', '$condition_decription', CURRENT_TIMESTAMP, null)");
+    $data = ["response" => "order_placed", "data": $customer_id+" "+$manufacturer+" "+$years+" "+$condition_description+" "+$payment_information_id];
 
     echo json_encode($data);
 }
