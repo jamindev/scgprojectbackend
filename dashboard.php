@@ -37,8 +37,8 @@ if(isset($_POST['place_order'])){
 // $sql = "INSERT INTO `fbdata`($columns) VALUES ($values)";
 
 
-    $years = addslashes($years);
-    $condition_description = addslashes($condition_description);
+    //$years = addslashes($years);
+    //$condition_description = addslashes($condition_description);
     // $query = $manage_db->return_query("SELECT * FROM payment_information WHERE customer_id='$id'");
 
     // if ($query->num_rows > 0) {
