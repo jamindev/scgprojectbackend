@@ -30,7 +30,6 @@ if(isset($_POST['place_order'])){
     $years = $_POST['years'];
     $condition_description = $_POST['condition_description'];
 
-    $years = json_encode($years);
 
 //     $columns = implode(", ",array_keys($insData));
 // $escaped_values = array_map('mysql_real_escape_string', array_values($insData));
