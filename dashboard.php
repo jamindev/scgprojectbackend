@@ -47,26 +47,23 @@ if(isset($_POST['place_order'])){
     echo json_encode($data);
 }
 
-if(isset($_POST['get_orders'])){
-    $manage_db = new manage_db();
-    $customer_id = $_POST['id'];
+// if(isset($_GET['get_orders'])){
+//     $manage_db = new manage_db();
+//     $customer_id = $_GET['id'];
     
-    $payment_information_id = 1;
+//     $query = $manage_db->return_query("SELECT * FROM orders WHERE id='$customer_id'");
 
+//     if ($query->num_rows > 0) {
+//         while($row = $query->fetch_assoc()) {
+//             $manufacturer = $row['manufacturer'];
+//             $years = $row['years'];
+//         }
+//         $data = ["response" => "retrieved", "manufacturuer" => $manufacturer, "years" => $years];
+//     }else{
+//         $data = ["response" => "failed"];
+//     }
     
-    $query = $manage_db->return_query("SELECT * FROM orders WHERE id='$customer_id'");
-
-    if ($query->num_rows > 0) {
-        while($row = $query->fetch_assoc()) {
-            $manufacturer = $row['manufacturer'];
-            $years = $row['years'];
-        }
-        $data = ["response" => "retrieved", "manufacturuer" => $manufacturer, "years" => $years];
-    }else{
-        $data = ["response" => "failed"];
-    }
-    
-    echo json_encode($data);
-}
+//     echo json_encode($data);
+// }
 
 ?>
