@@ -32,8 +32,19 @@ if(isset($_POST['signup'])){
     if ($query->num_rows > 0) {
         $data = ["response" => "Email is already being used!", "email" => $email, "id" => "1"];
     }else{
-        $manage_db->query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
-        $data = ["response" => "posted", "email" => $email, "id" => "1"];
+        $conn = $manage_db->connect();
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)";
+        
+        if (mysqli_query($conn, $sql)) {
+            $id = mysqli_insert_id($conn);
+        }
+        //$manage_db->query("INSERT INTO users VALUES(null, '$first_name', '$last_name', '$email', '$password', '$address_1', '$address_2', '$city', '$state_or_region', '$country', 'customer', 'active', CURRENT_TIMESTAMP, null)");
+        $data = ["response" => "posted", "email" => $email, "id" => $id];
     }
 
     echo json_encode($data);
