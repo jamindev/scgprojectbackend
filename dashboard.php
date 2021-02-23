@@ -58,13 +58,13 @@ if(isset($_POST['get_orders'])){
 
     if ($query->num_rows > 0) {
         while($row = $query->fetch_assoc()) {
-            $first_name = $row['first_name'];
-            $city = $row['city'];
+            $manufacturer = $row['manufacturer'];
+            $years = $row['years'];
         }
-        $data = ["response" => "retrieved", "email" => $email, "first_name" => $first_name, "city"=> $city];
+        $data = ["response" => "retrieved", "manufacturuer" => $manufacturer, "years" => $years];
     }else{
         $data = ["response" => "failed"];
-    }$data = ["response" => "order_placed"];
+    }
     
     echo json_encode($data);
 }
