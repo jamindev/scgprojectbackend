@@ -25,12 +25,19 @@ if(isset($_GET['myprofile'])){
 
 if(isset($_POST['place_order'])){
     $manage_db = new manage_db();
-    $email = $_POST['email'];
     $customer_id = $_POST['id'];
     $manufacturer = $_POST['manufacturer'];
     $years = $_POST['years'];
     $condition_description = $_POST['condition_description'];
     
+    $query = $manage_db->return_query("SELECT * FROM payment_information WHERE customer_id='$id'");
+
+    if ($query->num_rows > 0) {
+        while($row = $query->fetch_assoc()) {
+            $payment_information_id = $row['id'];
+        }
+    }
+
     $manage_db->query("INSERT INTO orders VALUES(null, '$customer_id', '$payment_information_id', '$manufacturer', '$years', '$condition_decription', CURRENT_TIMESTAMP, null)");
     $data = ["response" => "order_placed"];
 
