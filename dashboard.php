@@ -47,4 +47,26 @@ if(isset($_POST['place_order'])){
     echo json_encode($data);
 }
 
+if(isset($_POST['get_orders'])){
+    $manage_db = new manage_db();
+    $customer_id = $_POST['id'];
+    
+    $payment_information_id = 1;
+
+    
+    $query = $manage_db->return_query("SELECT * FROM orders WHERE id='$customer_id'");
+
+    if ($query->num_rows > 0) {
+        while($row = $query->fetch_assoc()) {
+            $first_name = $row['first_name'];
+            $city = $row['city'];
+        }
+        $data = ["response" => "retrieved", "email" => $email, "first_name" => $first_name, "city"=> $city];
+    }else{
+        $data = ["response" => "failed"];
+    }$data = ["response" => "order_placed"];
+    
+    echo json_encode($data);
+}
+
 ?>
