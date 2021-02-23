@@ -30,15 +30,6 @@ if(isset($_POST['place_order'])){
     $years = $_POST['years'];
     $condition_description = $_POST['condition_description'];
 
-
-//     $columns = implode(", ",array_keys($insData));
-// $escaped_values = array_map('mysql_real_escape_string', array_values($insData));
-// $values  = implode(", ", $escaped_values);
-// $sql = "INSERT INTO `fbdata`($columns) VALUES ($values)";
-
-
-    //$years = addslashes($years);
-    //$condition_description = addslashes($condition_description);
     // $query = $manage_db->return_query("SELECT * FROM payment_information WHERE customer_id='$id'");
 
     // if ($query->num_rows > 0) {
@@ -51,7 +42,7 @@ if(isset($_POST['place_order'])){
     $payment_information_id = 1;
 
     $manage_db->query("INSERT INTO orders VALUES(null, '$customer_id', '$payment_information_id', '$manufacturer', '$years', '$condition_description', 'pending', CURRENT_TIMESTAMP, null)");
-    $data = ["response" => "order_placed", "years" => $years];
+    $data = ["response" => "order_placed"];
     
     echo json_encode($data);
 }
