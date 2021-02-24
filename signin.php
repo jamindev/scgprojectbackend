@@ -14,10 +14,11 @@ if(isset($_GET['signin'])){
     if ($query->num_rows > 0) {
         while($row = $query->fetch_assoc()) {
             $id = $row['id'];
+            $email = $row['email'];
         }
         $data = ["response" => "success", "email" => $email, "id" => $id];
     }else{
-        $data = ["response" => "failed", "email" => $email, "id" => "1"];
+        $data = ["response" => "failed"];
     }
 
     echo json_encode($data);
