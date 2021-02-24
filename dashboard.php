@@ -5,16 +5,22 @@ require("./includes/manage_db.php");
 
 if(isset($_GET['myprofile'])){
     $manage_db = new manage_db();
+    $id = $_GET['id'];
     $email = $_GET['email'];
 
-    $query = $manage_db->return_query("SELECT * FROM users u INNER JOIN orders o ON u.id=o.customer_id WHERE email='$email'");
+    $query_users = $manage_db->return_query("SELECT * FROM users WHERE email='$email'");
+    $query_orders = $manage_db->return_query("SELECT * FROM orders WHERE customer_id='$id'");
 
-    $num_of_orders = $query->num_rows;
-    while($row = $query->fetch_assoc()) {
-        $first_name = $row['first_name'];
-        $city = $row['city'];
+    if ($query_users->num_rows > 0) {
+        while($row = $query_users->fetch_assoc()) {
+            $first_name = $row['first_name'];
+            $city = $row['city'];
+        }
+        $num_of_orders = $query_orders->num_rows;
+        $data = ["response" => "retrieved", "email" => $email, "first_name" => $first_name, "city"=> $city, "num_of_orders" => $num_of_orders];
+    }else{
+        $data = ["response" => "failed"];
     }
-    $data = ["response" => "retrieved", "email" => $email, "first_name" => $first_name, "city"=> $city, "num_of_orders" => $num_of_orders];
 
     echo json_encode($data);
 }
