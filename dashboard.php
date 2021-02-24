@@ -7,18 +7,14 @@ if(isset($_GET['myprofile'])){
     $manage_db = new manage_db();
     $email = $_GET['email'];
 
-    $query = $manage_db->return_query("SELECT * FROM users AS u INNER JOIN orders AS o ON u.id=o.customer_id WHERE email='$email'");
+    $query = $manage_db->return_query("SELECT * FROM users u INNER JOIN orders o ON u.id=o.customer_id WHERE email='$email'");
 
     $num_of_orders = $query->num_rows;
-    if ($query->num_rows > 0) {
-        while($row = $query->fetch_assoc()) {
-            $first_name = $row['first_name'];
-            $city = $row['city'];
-        }
-        $data = ["response" => "retrieved", "email" => $email, "first_name" => $first_name, "city"=> $city, "num_of_orders" => $num_of_orders];
-    }else{
-        $data = ["response" => "failed"];
+    while($row = $query->fetch_assoc()) {
+        $first_name = $row['first_name'];
+        $city = $row['city'];
     }
+    $data = ["response" => "retrieved", "email" => $email, "first_name" => $first_name, "city"=> $city, "num_of_orders" => $num_of_orders];
 
     echo json_encode($data);
 }
