@@ -13,10 +13,4 @@ class db{
 	}
 }
 
-/*class db{
-	var $db_host = "localhost";
-	var $db_user = "benamo0_rentkama";
-	var $db_pass = "utopiamaya3";
-	var $db_name = "benamo0_rentkama";
-}*/
 ?>

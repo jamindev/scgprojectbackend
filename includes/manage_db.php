@@ -25,10 +25,6 @@ $login_error = "";
 
 //3.
 		function query($sql){
-			$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
-			$db_user = "admin";
-			$db_pass = "utopiamaya3";
-			$db_name = "scgproject";
 			$connect = $this->connect();
 			//$this->select_db();
 			mysqli_query($connect, $sql) or die(mysql_error());
@@ -36,10 +32,6 @@ $login_error = "";
 
 //4.
 		function return_query($sql){
-			$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
-			$db_user = "admin";
-			$db_pass = "utopiamaya3";
-			$db_name = "scgproject";
 			$connect = $this->connect();
 			//$this->select_db();
 			$query = mysqli_query($connect, $sql);
