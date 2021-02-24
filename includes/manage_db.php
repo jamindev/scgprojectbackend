@@ -7,7 +7,8 @@ $login_error = "";
 	class manage_db extends db{
 //1.
 		function connect(){
-			$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
+			//$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
+			$db_host = $this->db_host;
 			$db_user = "admin";
 			$db_pass = "utopiamaya3";
 			$db_name = "scgproject";
