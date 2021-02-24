@@ -9,10 +9,9 @@ $login_error = "";
 		function connect(){
 			//$db_host = "database-1.cjqk7wdjxfby.us-east-1.rds.amazonaws.com";
 			$db_host = $this->db_host;
-			$db_user = "admin";
-			$db_pass = "utopiamaya3";
-			$db_name = "scgproject";
-			$db_info = new db();
+			$db_user = $this->db_user;
+			$db_pass = $this->db_pass;
+			$db_name = $this->db_name;
 			$connect = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 			return $connect;
 		}
